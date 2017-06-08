@@ -253,6 +253,7 @@
         /* Funnel Queries */
         $.when(topEvents).done(function(events){
             objs = events.values();
+            console.log(objs);
         });
         /* Find the Root Event Count */
         var rootEventCount = MP.api.segment(rootEvent,rootParams);
