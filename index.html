@@ -57,6 +57,7 @@
       MP.api.topEvents({limit:1500}).done(function(results) {
           var options = {items: []};
           _.each(results.values(), function(result){
+            console.log(result);
             options.items.push({"label": result, "value": result});
           });
           rootEventSelect2 = $("#eventSelect2").MPSelect(options);
