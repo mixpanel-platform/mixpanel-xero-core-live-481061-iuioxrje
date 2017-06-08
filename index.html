@@ -221,7 +221,7 @@
       }
       rootEventSelect.on('change', function(e){
         $('#run').show();
-        console.log(rootEventSelect2);
+        console.log(rootEventSelect2.innerText);
       })
       $('#run').on('click', function(e){
         var rootEvent = rootEventSelect.MPEventSelect('value')
