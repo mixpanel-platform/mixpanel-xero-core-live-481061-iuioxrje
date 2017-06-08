@@ -56,10 +56,8 @@
       MP.api.topEvents({limit:1500}).done(function(results) {
           var options = {items: []};
           _.each(results.values(), function(result){
-            console.log(result);
             options.items.push({"label": result, "value": result});
           });
-          console.log(options);
           var rootEventSelect2 = $("#eventSelect2").MPSelect(options);
       });
       /* Global Event List */
@@ -222,6 +220,7 @@
       }
       rootEventSelect.on('change', function(e){
         $('#run').show();
+        console.log(rootEventSelect2);
       })
       $('#run').on('click', function(e){
         var rootEvent = rootEventSelect.MPEventSelect('value')
