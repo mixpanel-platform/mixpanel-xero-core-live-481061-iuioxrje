@@ -55,6 +55,7 @@
       MP.api.topEvents({limit:1500}).done(function(results) {
           var options = {items: []};
           _.each(results.values(), function(result){
+            result = result.slice(0, -1);
             options.items.push({"label": result, "value": result});
           });
           rootEventSelect2 = $("#eventSelect2").MPSelect(options);
@@ -223,7 +224,7 @@
       
       $('#run').on('click', function(e){
         var rootEvent = rootEventSelect2[0].innerText;
-        rootEvent = rootEvent.slice(0, -1);
+        //rootEvent = rootEvent.slice(0, -1);
         var dates = datesSelector.MPDatepicker('value')
         
         params.from = dates.from;
