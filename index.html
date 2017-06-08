@@ -60,7 +60,7 @@
             options.items.push({"label": result, "value": result});
           });
           rootEventSelect2 = $("#eventSelect2").MPSelect(options);
-          rootEventSelect2.on('change', function(e){
+          rootEventSelect.on('change', function(e){
             $('#run').show();
           });
       });
@@ -224,8 +224,8 @@
       }
       
       $('#run').on('click', function(e){
-        //var rootEvent = rootEventSelect.MPEventSelect('value')
-        var rootEvent = rootEventSelect2[0].innerText;
+        var rootEvent = rootEventSelect.MPEventSelect('value')
+        //var rootEvent = rootEventSelect2[0].innerText;
         var dates = datesSelector.MPDatepicker('value')
         
         params.from = dates.from;
@@ -257,7 +257,7 @@
         });
         /* Find the Root Event Count */
         var rootEventCount = MP.api.segment(rootEvent,rootParams);
-        
+        console.log(rootEvent);
         $.when(rootEventCount).done(function(eventCount){
             graphData.count = eventCount.sum().values()[rootEvent];
             addNode(graphData);
