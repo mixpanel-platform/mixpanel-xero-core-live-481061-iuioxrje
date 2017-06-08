@@ -52,7 +52,7 @@
       MP.api.MAX_SIMULTANEOUS_QUERIES = 30
       var datesSelector = $('#dateSelect').MPDatepicker();
       var rootEventSelect = $('#eventSelect').MPEventSelect();
-      MP.api.topEvents({limit:1000}).done(function(results) {
+      MP.api.topEvents({limit:1500}).done(function(results) {
           console.log('top events\n', results.values());
       });
       /* Global Event List */
