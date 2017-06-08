@@ -54,9 +54,12 @@
       var datesSelector = $('#dateSelect').MPDatepicker();
       var rootEventSelect = $('#eventSelect').MPEventSelect();
       MP.api.topEvents({limit:1500}).done(function(results) {
+          var options = {items: []};
           _.each(results.values(), function(result){
             console.log(result);
+            options.items.push({"label": result, "value": result});
           });
+          console.log(options);
       });
       /* Global Event List */
       var rootEvent;
