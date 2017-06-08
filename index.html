@@ -63,6 +63,9 @@
           rootEventSelect.on('change', function(e){
             $('#run').show();
           });
+          rootEventSelect2.on('change', function(e){
+            $('#run').show();
+          });
       });
       /* Global Event List */
       var rootEvent;
@@ -253,13 +256,13 @@
         /* Funnel Queries */
         $.when(topEvents).done(function(events){
             objs = events.values();
-            console.log(objs);
         });
         /* Find the Root Event Count */
         var rootEventCount = MP.api.segment(rootEvent,rootParams);
         console.log(rootEvent);
         $.when(rootEventCount).done(function(eventCount){
             graphData.count = eventCount.sum().values()[rootEvent];
+            console.log(graphData);
             addNode(graphData);
         });
       });
