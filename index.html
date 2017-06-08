@@ -60,6 +60,9 @@
             options.items.push({"label": result, "value": result});
           });
           rootEventSelect2 = $("#eventSelect2").MPSelect(options);
+          rootEventSelect2.on('change', function(e){
+            $('#run').show();
+          });
       });
       /* Global Event List */
       var rootEvent;
@@ -219,9 +222,7 @@
              console.log(graphData)
           });
       }
-      rootEventSelect2.on('change', function(e){
-        $('#run').show();
-      })
+      
       $('#run').on('click', function(e){
         //var rootEvent = rootEventSelect.MPEventSelect('value')
         var rootEvent = rootEventSelect2[0].innerText;
