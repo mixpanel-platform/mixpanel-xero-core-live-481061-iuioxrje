@@ -43,7 +43,6 @@
     </style>
   </head>
   <body class="mixpanel-platform-body" style="overflow-x:scroll;">
-      <div id="eventSelect" style="float: left;"></div>
       <div id="eventSelect2" style="float:left"></div>
       <div id="dateSelect" style="float: right;"></div>
       <div style="clear: both;"></div>
@@ -52,7 +51,6 @@
     debugger
       MP.api.MAX_SIMULTANEOUS_QUERIES = 30
       var datesSelector = $('#dateSelect').MPDatepicker();
-      var rootEventSelect = $('#eventSelect').MPEventSelect();
       var rootEventSelect2;
       MP.api.topEvents({limit:1500}).done(function(results) {
           var options = {items: []};
@@ -60,9 +58,6 @@
             options.items.push({"label": result, "value": result});
           });
           rootEventSelect2 = $("#eventSelect2").MPSelect(options);
-          rootEventSelect.on('change', function(e){
-            $('#run').show();
-          });
           rootEventSelect2.on('change', function(e){
             $('#run').show();
           });
@@ -227,7 +222,6 @@
       }
       
       $('#run').on('click', function(e){
-        var rootEvent = rootEventSelect.MPEventSelect('value')
         var rootEvent = rootEventSelect2[0].innerText;
         rootEvent = rootEvent.slice(0, -1);
         var dates = datesSelector.MPDatepicker('value')
