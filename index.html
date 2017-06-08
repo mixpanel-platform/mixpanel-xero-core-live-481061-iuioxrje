@@ -44,6 +44,7 @@
   </head>
   <body class="mixpanel-platform-body" style="overflow-x:scroll;">
       <div id="eventSelect" style="float: left;"></div>
+      <div id="eventSelect2" style="float:left"></div>
       <div id="dateSelect" style="float: right;"></div>
       <div style="clear: both;"></div>
       <button id="run" value="Run" style="display: none;">Run</button>
@@ -53,7 +54,9 @@
       var datesSelector = $('#dateSelect').MPDatepicker();
       var rootEventSelect = $('#eventSelect').MPEventSelect();
       MP.api.topEvents({limit:1500}).done(function(results) {
-          console.log('top events\n', results.values());
+          _.each(results, function(result){
+            console.log(result);
+          });
       });
       /* Global Event List */
       var rootEvent;
