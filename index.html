@@ -260,6 +260,7 @@
         /* Find the Root Event Count */
         var rootEventCount = MP.api.segment(rootEvent,rootParams);
         console.log(rootEvent);
+        console.log(graphData);
         $.when(rootEventCount).done(function(eventCount){
             graphData.count = eventCount.sum().values()[rootEvent];
             console.log(graphData);
